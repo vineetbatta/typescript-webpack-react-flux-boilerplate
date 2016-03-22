@@ -7,13 +7,14 @@
     "files.exclude": {
 		"**/.git": true,
 		"**/.DS_Store": true,
-        "node_modules/**": true,
-        "build/**": true
+    "node_modules/**": false,
+    "typings/main": true,
+    "build/**": true
 	},
 
-    // When enabled, will trim trailing whitespace when you save a file.
-    "files.trimTrailingWhitespace": true,
+  // When enabled, will trim trailing whitespace when you save a file.
+  "files.trimTrailingWhitespace": true,
 
-    // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
+  // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

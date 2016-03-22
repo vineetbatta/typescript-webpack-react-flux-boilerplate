@@ -1,4 +1,4 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/browser.d.ts" />
 
 import IAction from "../Actions/IAction";
 import Dispatcher from "../Dispatcher/Dispatcher";

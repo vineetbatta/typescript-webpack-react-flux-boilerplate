@@ -1,4 +1,4 @@
-/// <reference path="typings/node/node.d.ts"/>
+/// <reference path="typings/browser/ambient/node/node.d.ts"/>
 
 var path = require("path");
 var webpackShared = require("./webpack.shared");
@@ -35,6 +35,7 @@ var config = {
     alias: {
       'react': path.join(nodeModulesPath, 'react', 'react.js'),
       'react-dom': path.join(nodeModulesPath, 'react-dom', 'dist', 'react-dom.js'),
+      'flux/utils': path.join(nodeModulesPath, 'flux', 'utils.js'),
       'flux': path.join(nodeModulesPath, 'flux', 'index.js'),
       'babel-polyfill': path.join(nodeModulesPath, 'babel-polyfill', 'lib', 'index.js'),
     }

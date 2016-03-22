@@ -1,4 +1,4 @@
-/// <reference path="typings/node/node.d.ts"/>
+/// <reference path="typings/browser/ambient/node/node.d.ts"/>
 
 var path = require("path");
 var WebpackConfig = require('webpack-config');

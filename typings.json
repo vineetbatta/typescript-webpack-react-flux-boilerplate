@@ -1,0 +1,11 @@
+{
+  "ambientDependencies": {
+    "flux": "github:DefinitelyTyped/DefinitelyTyped/flux/flux.d.ts#957c41c644b150a1ecba4377aa2c6f7f6442eef0",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#957c41c644b150a1ecba4377aa2c6f7f6442eef0",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#957c41c644b150a1ecba4377aa2c6f7f6442eef0",
+    "react-addons": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons.d.ts#b95d6bea8041db86ccee30ef1ef97e4358432311",
+    "react-dom": "github:DefinitelyTyped/DefinitelyTyped/react/react-dom.d.ts#efd40e67ff323f7147651bdbef03c03ead7b1675",
+    "react-addons-test-utils": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-test-utils.d.ts#efd40e67ff323f7147651bdbef03c03ead7b1675",
+    "react": "github:DefinitelyTyped/DefinitelyTyped/react/react.d.ts#efd40e67ff323f7147651bdbef03c03ead7b1675"
+  }
+}

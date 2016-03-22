@@ -1,9 +1,10 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "sourceMap": true,
-        "jsx": "react"
-    },
-    "files": [
-    ]
+  "compilerOptions": {
+      "target": "es6",
+      "sourceMap": true,
+      "jsx": "react"
+  },
+  "files": [
+    "typings/browser.d.ts"
+  ]
 }
