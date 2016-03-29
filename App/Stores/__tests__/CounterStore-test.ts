@@ -10,5 +10,10 @@ describe("CounterStore tests", () => {
     expect(
       counterStore.reduce(0, { type: "increment" })
     ).toEqual(1);
+
+    expect(
+      counterStore.reduce(2, { type: "square" })
+    ).toEqual(5);
+
   });
 });
