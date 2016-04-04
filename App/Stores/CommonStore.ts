@@ -1,49 +1,44 @@
 /// <reference path="../../typings/browser.d.ts" />
 
-import BaseStore from "./BaseStore";
-import IAction from "./../Actions/IAction";
-import Dispatcher from "../Dispatcher/Dispatcher";
-import AppLoadedAction from "../Actions/AppLoadedAction";
-import SayHelloAction from "../Actions/SayHelloAction";
+import {ReduceStore} from "flux/utils";
+import dispatcher from "../Dispatcher/Dispatcher";
 
-class CommonStore extends BaseStore {
+interface IContentPageState {
+  bodyTitle?: string;
+  bodySummary?: string;
+  sayHelloCount?: number;
+}
+
+class CommonStore extends ReduceStore<IContentPageState> {
   private bodyTitle: string;
   private bodySummary: string;
   private sayHelloCount: number = 0;
 
-  constructor() {
-    super();
-    Dispatcher.register((action: IAction) => this.processActions(action));
+  public getInitialState():IContentPageState {
+    return {
+      bodyTitle: "",
+      bodySummary: "",
+      sayHelloCount: 0
+    }
   }
 
-  getBodyTitle(): string {
-    if (this.bodyTitle) {
-      return this.bodyTitle.toUpperCase();
+  reduce(state: IContentPageState, action: any): IContentPageState {
+    switch (action.type) {
+      case 'app-loaded':
+        return {
+          bodyTitle: state.bodyTitle,
+          bodySummary: state.bodySummary
+        };
+
+      case 'say-hello':
+        return {
+          sayHelloCount + 1
+        };
+
+      default:
+        return state;
     }
-
-    return "";
-  };
-
-  getBodySummary(): string {
-    return this.bodySummary;
-  };
-
-  getSayHelloCount(): number {
-    return this.sayHelloCount;
-  };
-
-  private processActions(action: IAction): void {
-    if (action instanceof AppLoadedAction) {
-      this.bodyTitle = action.bodyTitle;
-      this.bodySummary = action.bodySummary;
-      this.emitChange();
-
-    } else if (action instanceof SayHelloAction) {
-      this.sayHelloCount++;
-      this.emitChange();
-
-    }
-  };
+  }
 }
 
-export default new CommonStore();
+export default new CommonStore(dispatcher);

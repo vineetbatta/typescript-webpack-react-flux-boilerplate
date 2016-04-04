@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/browser.d.ts" />
 
-import * as React from "react";
+import React, {Component} from 'react';
 import ContentHeader from "./ContentHeader/ContentHeader";
 import ContentBody from "./ContentBody/ContentBody";
 import CommonStore from "../../Stores/CommonStore";
@@ -16,17 +16,18 @@ interface IContentPageState {
   sayHelloCount: number;
 }
 
-export default class ContentPage extends React.Component<{}, IContentPageState> {
-  private onChange: () => void = () => {
-    this.setState(this.getStateFromStores());
-  };
-
-  constructor() {
-    super();
-    this.state = this.getStateFromStores();
+export default class ContentPage extends Component<{}, IContentPageState> {
+  public static getStores() {
+    return [CommonStore];
   }
 
-  render(): React.ReactElement<{}> {
+  public static calculateState(prevState) {
+    return {
+      counter: CommonStore.getState(),
+    };
+  }
+
+  public render(): React.ReactElement<{}> {
     const headerTitle: string = "Welcome to Lorem Ipsum";
 
     return (
@@ -34,31 +35,11 @@ export default class ContentPage extends React.Component<{}, IContentPageState> 
         <ContentHeader isActive={true} title={headerTitle} />
         <ContentBody ref="contentBodyRef" title={this.state.bodyTitle} summary={this.state.bodySummary}>
           <div className={styles.hello}>
-            <button onClick={() => this.onButtonClick() }>Say Hello!</button>
+            // <button onClick={() => this.onButtonClick() }>Say Hello!</button>
             <span> You said hello {this.state.sayHelloCount} time(s) </span>
           </div>
         </ContentBody>
       </div>
     );
-  }
-
-  componentDidMount(): void {
-    CommonStore.addListener(this.onChange);
-  }
-
-  componentWillUnmount(): void {
-    CommonStore.removeListener(this.onChange);
-  }
-
-  private onButtonClick(): void {
-    CommonActionCreators.sayHello();
-  }
-
-  private getStateFromStores(): IContentPageState {
-    return {
-      bodyTitle: CommonStore.getBodyTitle(),
-      bodySummary: CommonStore.getBodySummary(),
-      sayHelloCount: CommonStore.getSayHelloCount()
-    };
   }
 }

@@ -25,7 +25,7 @@ describe("ContentPage tests", () => {
       expect(summaryElement).toBeDefined();
 
       const summaryText: string = summaryElement.textContent;
-      expect(summaryText).toBe(CommonStore.getBodySummary());
+      expect(summaryText).toBe(CommonStore.BodySummary;
     });
   });
 });

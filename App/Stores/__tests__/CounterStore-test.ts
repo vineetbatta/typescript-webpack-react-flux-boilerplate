@@ -13,7 +13,7 @@ describe("CounterStore tests", () => {
 
     expect(
       counterStore.reduce(2, { type: "square" })
-    ).toEqual(5);
+    ).toEqual(4);
 
   });
 });
