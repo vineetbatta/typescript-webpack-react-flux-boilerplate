@@ -2,6 +2,8 @@ import IAction from "./IAction";
 import ActionLogEntry from "../Log/ActionLogEntry";
 
 export default class AppLoadedAction implements IAction {
+  type: string = "app-loaded";
+
   bodyTitle: string;
   bodySummary: string;
 

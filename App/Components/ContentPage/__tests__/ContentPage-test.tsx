@@ -11,7 +11,7 @@ import CommonActionCreators from "./../../../ActionCreators/CommonActionCreators
 describe("ContentPage tests", () => {
   describe("render tests", () => {
     it("renders content page", () => {
-      CommonActionCreators.loadApp();
+      // CommonActionCreators.loadApp();
 
       const component: React.Component<{}, {}> = TestUtils.renderIntoDocument(
         <ContentPage />
@@ -25,7 +25,7 @@ describe("ContentPage tests", () => {
       expect(summaryElement).toBeDefined();
 
       const summaryText: string = summaryElement.textContent;
-      expect(summaryText).toBe(CommonStore.BodySummary;
+      expect(summaryText).toBe(CommonStore.getState().bodySummary);
     });
   });
 });

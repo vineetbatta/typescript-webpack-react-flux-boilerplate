@@ -10,29 +10,26 @@ interface IContentPageState {
 }
 
 class CommonStore extends ReduceStore<IContentPageState> {
-  private bodyTitle: string;
-  private bodySummary: string;
-  private sayHelloCount: number = 0;
 
-  public getInitialState():IContentPageState {
+  public getInitialState(): IContentPageState {
     return {
       bodyTitle: "",
       bodySummary: "",
       sayHelloCount: 0
-    }
+    };
   }
 
-  reduce(state: IContentPageState, action: any): IContentPageState {
+  reduce(state: IContentPageState, action: { type: string }): IContentPageState {
     switch (action.type) {
-      case 'app-loaded':
+      case "app-loaded":
         return {
           bodyTitle: state.bodyTitle,
           bodySummary: state.bodySummary
         };
 
-      case 'say-hello':
+      case "say-hello":
         return {
-          sayHelloCount + 1
+          sayHelloCount: state.sayHelloCount + 1
         };
 
       default:
