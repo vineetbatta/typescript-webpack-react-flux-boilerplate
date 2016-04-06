@@ -29,8 +29,11 @@ class ContentPage extends React.Component<IProps, IContentPageState> {
   }
 
   public static calculateState(prevState: IContentPageState): IContentPageState {
+    var newState: IContentPageState = CommonStore.getState();
     return {
-      sayHelloCount: CommonStore.getState().sayHelloCount
+      bodyTitle: newState.bodyTitle,
+      bodySummary: newState.bodySummary,
+      sayHelloCount: newState.sayHelloCount
     };
   }
 
